@@ -24,11 +24,12 @@ sed -i 's/AllowOverride FileInfo.*/AllowOverride All/' $CONF
 sed -i 's/Options MultiViews.*/Options Indexes FollowSymLinks/' $CONF
 sed -i 's/Require method.*/Require all granted/' $CONF
 
-#sed -i ' s/UserDir\sdisabled// ' /etc/httpd/conf.d/userdir.conf
-#sed -i ' s/#UserDir.*/UserDir public_html/ ' /etc/httpd/conf.d/userdir.conf
-
 
 systemctl start httpd.service
+yum install firewalld
+systemctl start firewalld
+systemctl enable firewalld
+systemctl status firewalld
 firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-service=https
 firewall-cmd --reload
