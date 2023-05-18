@@ -55,8 +55,7 @@ echo 'PHP installed.'
 #Guide link for extra info https://wiki.crowncloud.net/?How_to_Install_phpMyAdmin_on_CentOS_Stream_9
 echo 'Installing phpMyAdmin...'
 dnf config-manager --set-enabled crb
-dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-dnf install https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-9.noarch.rpm
+dnf install epel-release epel-next-release
 dnf install phpMyAdmin
 
 #Fix phpMyAdmin Conf
