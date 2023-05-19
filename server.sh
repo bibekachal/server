@@ -29,7 +29,6 @@ systemctl start httpd.service
 yum install firewalld
 systemctl start firewalld
 systemctl enable firewalld
-systemctl status firewalld
 firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-service=https
 firewall-cmd --reload
