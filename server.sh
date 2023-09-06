@@ -43,6 +43,9 @@ systemctl enable mariadb.service
 mysql_secure_installation
 echo 'Mariadb installed and started.';
 
+#phpMyAdmin
+dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-9.rpm
+dnf --enablerepo=remi install phpMyAdmin
 
 #PHP
 echo 'Installing PHP...'
