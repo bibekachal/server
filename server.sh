@@ -43,6 +43,15 @@ systemctl enable mariadb.service
 mysql_secure_installation
 echo 'Mariadb installed and started.';
 
+
+
+#PHP
+echo 'Installing PHP...'
+yum -y install php
+yum -y install php-gd php-pear php-mbstring
+yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap curl curl-devel
+echo 'PHP installed.'
+
 #phpMyAdmin
 dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-9.rpm
 dnf --enablerepo=remi install phpMyAdmin -y
@@ -62,13 +71,6 @@ AddDefaultCharset UTF-8\
 </IfModule>\
 </Directory>' /etc/httpd/conf.d/phpMyAdmin.conf
 echo 'phpMyAdmin is installed.'
-
-#PHP
-echo 'Installing PHP...'
-yum -y install php
-yum -y install php-gd php-pear php-mbstring
-yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap curl curl-devel
-echo 'PHP installed.'
 
 #ftp
 echo 'Installing VSFTPD...';
