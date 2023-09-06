@@ -1,6 +1,6 @@
 #!/bin/bash
 read -p 'Domain name for virtual host (example.com) for virtual host: ' domain
-read -p 'Username (add existing username for whom the vhost is): ' username
+read -p 'Username of the user who is assigned this virtual host: ' username
 read -p 'Server IP:' ip
 
 WEBDIR=/home/$username/web/$domain/public_html/
