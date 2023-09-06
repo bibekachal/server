@@ -87,5 +87,3 @@ firewall-cmd --permanent --add-service=ftp
 systemctl restart httpd.service
 apachectl restart
 echo 'Server essentials are installed.'
-
-exit 0
