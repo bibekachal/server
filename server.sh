@@ -2,7 +2,7 @@
 #Script to install essentials
 #You MUST MUST MUST upgrade server with yum upgrade and then yum update otherwise it does not work no chmod command!
 yum upgrade
-yum update
+
 read -p 'Do you want to disable SE linux (later restart server manually) y/n: ' selinux
 
 if [ $selinux = 'y' ] ; then
