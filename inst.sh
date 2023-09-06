@@ -5,22 +5,22 @@
 #chmod +x inst.sh
 #sh inst.sh
 
-curl -O https://raw.githubusercontent.com/bibekachal/server/main/server.sh
-curl -O https://raw.githubusercontent.com/bibekachal/server/main/user.sh
-curl -O https://raw.githubusercontent.com/bibekachal/server/main/vhost.sh
+sudo curl -O https://raw.githubusercontent.com/bibekachal/server/main/server.sh
+sudo curl -O https://raw.githubusercontent.com/bibekachal/server/main/user.sh
+sudo curl -O https://raw.githubusercontent.com/bibekachal/server/main/vhost.sh
 
-yum install dos2unix
+sudo yum install dos2unix
 
-dos2unix server.sh
-dos2unix user.sh
+sudo dos2unix server.sh
+sudo dos2unix user.sh
 dos2unix vhost.sh
 
-chmod +x server.sh
-chmod +x user.sh
-chmod +x vhost.sh
+sudo chmod +x server.sh
+sudo chmod +x user.sh
+sudo chmod +x vhost.sh
 
-sh server.sh
-sh user.sh
+sudo sh server.sh
+sudo sh user.sh
 #sh vhost.sh
 
 exit 0
