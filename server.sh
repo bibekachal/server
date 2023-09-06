@@ -51,48 +51,6 @@ yum -y install php-gd php-pear php-mbstring
 yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap curl curl-devel
 echo 'PHP installed.'
 
-#phpMyAdmin
-#Guide link for extra info https://wiki.crowncloud.net/?How_to_Install_phpMyAdmin_on_CentOS_Stream_9
-echo 'Installing phpMyAdmin...'
-dnf config-manager --set-enabled crb
-dnf install epel-release epel-next-release
-dnf install phpMyAdmin -y
-
-#Fix phpMyAdmin Conf
-sed -i '/^<Directory.*phpMyAdmin\/>/,/^<\/Directory>/c\
-<Directory /usr/share/phpMyAdmin/>\
-AddDefaultCharset UTF-8\
-<IfModule mod_authz_core.c>\
-<RequireAny>\
-  Require all granted\
-</RequireAny>\
-</IfModule>\
-<IfModule !mod_authz_core.c>\
-  Order Deny,Allow\
-  Deny from All\
-  Allow from 127.0.0.1\
-  Allow from ::1\
-</IfModule>\
-</Directory>' /etc/httpd/conf.d/phpMyAdmin.conf
-
-##note that worked without the below command in centos8 stream
-sed -i '/^<Directory.*setup\/>/,/^<\/Directory>/c\
-<Directory /usr/share/phpMyAdmin/setup/>\
-<IfModule mod_authz_core.c>\
-<RequireAny>\
-  Require all granted\
-</RequireAny>\
-</IfModule>\
-<IfModule !mod_authz_core.c>\
-  Order Deny,Allow\
-  Deny from All\
-  Allow from 127.0.0.1\
-  Allow from ::1\
-</IfModule>\
-</Directory>' /etc/httpd/conf.d/phpMyAdmin.conf
-
-echo 'phpMyAdmin is installed.'
-
 #ftp
 echo 'Installing VSFTPD...';
 yum -y install vsftpd ftp
