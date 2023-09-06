@@ -45,7 +45,7 @@ echo 'Mariadb installed and started.';
 
 #phpMyAdmin
 dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf --enablerepo=remi install phpMyAdmin
+dnf --enablerepo=remi install phpMyAdmin -y
 sed -i '/^<Directory.*phpMyAdmin\/>/,/^<\/Directory>/c\
 <Directory /usr/share/phpMyAdmin/>\
 AddDefaultCharset UTF-8\
