@@ -56,7 +56,7 @@ echo 'PHP installed.'
 echo 'Installing phpMyAdmin...'
 dnf config-manager --set-enabled crb
 dnf install epel-release epel-next-release
-dnf install phpMyAdmin
+dnf install phpMyAdmin -y
 
 #Fix phpMyAdmin Conf
 sed -i '/^<Directory.*phpMyAdmin\/>/,/^<\/Directory>/c\
