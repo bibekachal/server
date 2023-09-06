@@ -10,7 +10,5 @@ read -p 'Write username: ' username
 useradd $username -p -m
 passwd $username
 
-#Apend apache to the newly created user's group so that it has the write access to the user's directory
-#Do not forget to apend the user to the existing group (-a), and (-G); note the uppercase G here
-usermod -a -G $username apache
+
 
