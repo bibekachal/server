@@ -53,24 +53,7 @@ yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring
 echo 'PHP installed.'
 
 #phpMyAdmin
-dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf --enablerepo=remi install phpMyAdmin -y
-sed -i '/^<Directory.*phpMyAdmin\/>/,/^<\/Directory>/c\
-<Directory /usr/share/phpMyAdmin/>\
-AddDefaultCharset UTF-8\
-<IfModule mod_authz_core.c>\
-<RequireAny>\
-  Require all granted\
-</RequireAny>\
-</IfModule>\
-<IfModule !mod_authz_core.c>\
-  Order Deny,Allow\
-  Deny from All\
-  Allow from 127.0.0.1\
-  Allow from ::1\
-</IfModule>\
-</Directory>' /etc/httpd/conf.d/phpMyAdmin.conf
-echo 'phpMyAdmin is installed.'
+
 
 #ftp
 echo 'Installing VSFTPD...';
