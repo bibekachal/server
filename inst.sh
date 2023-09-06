@@ -21,4 +21,5 @@ chmod +x vhost.sh
 
 sh server.sh
 sh user.sh
-#sh vhost.sh
+sh vhost.sh
+exit 0
