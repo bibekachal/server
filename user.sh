@@ -14,4 +14,3 @@ passwd $username
 #Do not forget to apend the user to the existing group (-a), and (-G); note the uppercase G here
 usermod -a -G $username apache
 
-exit 0
