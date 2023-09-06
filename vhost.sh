@@ -3,7 +3,7 @@ read -p 'Domain name for virtual host (example.com) for virtual host: ' domain
 read -p 'Username of the user who is assigned this virtual host: ' username
 read -p 'Server IP:' ip
 
-WEBDIR=/home/$username/web/$domain/public_html/
+WEBDIR=/home/$username/web/$domain/public_html
 CONFDIR=/etc/httpd/conf.d
 [ -d $CONFDIR ] || mkdir -p $CONFDIR
 
