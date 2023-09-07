@@ -21,7 +21,7 @@ cp $CONF $CONF.bak
 sed -i ' s/UserDir\sdisabled// ' $CONF
 sed -i ' s/#UserDir.*/UserDir public_html/ ' $CONF
 
-sed -i 's@^<Directory\s"\/home.*@<Directory "/home/*/web/*/public_html">@' /etc/httpd/conf.d/userdir.conf
+sed -i 's@^<Directory\s"\/home.*@<Directory "/home/*/web">@' /etc/httpd/conf.d/userdir.conf
 sed -i 's/AllowOverride FileInfo.*/AllowOverride All/' $CONF
 sed -i 's/Options MultiViews.*/Options Indexes FollowSymLinks/' $CONF
 sed -i 's/Require method.*/Require all granted/' $CONF
