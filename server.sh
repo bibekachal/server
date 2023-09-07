@@ -69,6 +69,8 @@ echo "<Directory "/usr/share/phpmyadmin">
   Allow from 127.0.0.1
   Allow from 192.168.1.0/24
 </Directory>
+Alias /phpmyadmin /usr/share/phpmyadmin
+Alias /phpMyAdmin /usr/share/phpmyadmin
 " > /etc/httpd/conf.d/phpmyadmin.conf
 
 
