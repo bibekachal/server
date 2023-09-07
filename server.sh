@@ -60,7 +60,7 @@ yum install wget unzip
 wget https://files.phpmyadmin.net/phpMyAdmin/5.1.3/phpMyAdmin-5.2.1-all-languages.zip 
 unzip phpMyAdmin-5.2.1-all-languages.zip
 mv phpMyAdmin-5.2.1-all-languages /usr/share/phpmyadmin 
-chown -R apache:apache /usr/share/phpmyadmin 
+chown -R apache /usr/share/phpmyadmin 
 chmod -R 755 /usr/share/phpmyadmin 
 
 echo "<Directory "/usr/share/phpmyadmin">
