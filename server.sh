@@ -62,6 +62,15 @@ mv phpMyAdmin-5.2.1-all-languages /usr/share/phpmyadmin
 chown -R apache:apache /usr/share/phpmyadmin 
 chmod -R 755 /usr/share/phpmyadmin 
 
+echo "<Directory "/usr/share/phpmyadmin">
+  Order Deny,Allow
+  Deny from all
+  Allow from localhost
+  Allow from 127.0.0.1
+  Allow from 192.168.1.0/24
+</Directory>
+" > /etc/httpd/conf.d/phpmyadmin.conf
+
 
 
 #ftp
