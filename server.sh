@@ -12,6 +12,7 @@ fi
 
 #apache
 yum -y install httpd
+systemctl start httpd.service
 
 #Enable UserDir
 CONF=/etc/httpd/conf.d/userdir.conf
@@ -25,7 +26,7 @@ sed -i 's/Options MultiViews.*/Options Indexes FollowSymLinks/' $CONF
 sed -i 's/Require method.*/Require all granted/' $CONF
 
 
-systemctl start httpd.service
+
 yum install firewalld
 systemctl start firewalld
 systemctl enable firewalld
@@ -53,6 +54,14 @@ yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring
 echo 'PHP installed.'
 
 #phpMyAdmin
+yum makecache
+yum install unzip
+curl -O https://files.phpmyadmin.net/phpMyAdmin/5.1.3/phpMyAdmin-5.2.1-all-languages.zip 
+unzip phpMyAdmin-5.2.1-all-languages.zip 
+mv phpMyAdmin-5.2.1-all-languages /usr/share/phpmyadmin 
+chown -R apache:apache /usr/share/phpmyadmin 
+chmod -R 755 /usr/share/phpmyadmin 
+
 
 
 #ftp
