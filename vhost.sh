@@ -19,7 +19,7 @@ echo "<?php header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', t
 chmod 711 -R /home/$username
 chmod 755 -R /home/$username/web/$domain/public_html
 chown $username -R /home/$username
-chown $username -R /var/www/html
+chown $username -R /var/www
 
 #Apend apache to the newly created user's group so that it has the write access to the user's directory
 #Do not forget to apend the user to the existing group (-a), and (-G); note the uppercase G here
