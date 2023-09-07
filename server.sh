@@ -48,12 +48,12 @@ echo 'Mariadb installed and started.';
 
 #PHP
 echo 'Installing PHP...'
-yum -y install php
+yum -y install php php-mysqli
 yum -y install php-gd php-pear php-mbstring
 yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap curl curl-devel
 echo 'PHP installed.'
 
-#phpMyAdmin
+#phpMyAdmin 5.2.1 for Apache v 2.4.57
 yum makecache
 yum install unzip
 curl -O https://files.phpmyadmin.net/phpMyAdmin/5.1.3/phpMyAdmin-5.2.1-all-languages.zip 
@@ -63,11 +63,10 @@ chown -R apache:apache /usr/share/phpmyadmin
 chmod -R 755 /usr/share/phpmyadmin 
 
 echo "<Directory "/usr/share/phpmyadmin">
-  Order Deny,Allow
-  Deny from all
-  Allow from localhost
-  Allow from 127.0.0.1
-  Allow from 192.168.1.0/24
+    Options Indexes FollowSymLinks MultiViews
+    DirectoryIndex index.php
+    AllowOverride all
+    Require all granted
 </Directory>
 Alias /phpmyadmin /usr/share/phpmyadmin
 Alias /phpMyAdmin /usr/share/phpmyadmin
