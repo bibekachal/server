@@ -14,7 +14,7 @@ echo "<VirtualHost $ip:80>
     </VirtualHost>" > $CONFDIR/$domain.conf
 
 mkdir -p $WEBDIR
-echo "<?php header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500); exit('Site is down. Working on it.'); echo '<br>'; ?>$domain" > $WEBDIR/index.html
+echo "<?php header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500); exit('Site is down($domain). Working on it.'); ?>" > $WEBDIR/index.html
 
 chmod 711 -R /home/$username
 chmod 755 -R /home/$username/web/$domain/public_html
