@@ -13,6 +13,7 @@ fi
 #apache
 yum -y install httpd
 systemctl start httpd.service
+systemctl enable httpd.service
 
 #Enable UserDir
 CONF=/etc/httpd/conf.d/userdir.conf
@@ -33,7 +34,7 @@ systemctl enable firewalld
 firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-service=https
 firewall-cmd --reload
-systemctl enable httpd.service
+
 
 
 #MariaDB
