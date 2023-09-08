@@ -57,7 +57,7 @@ echo 'PHP installed.'
 #phpMyAdmin 5.2.1 for Apache v 2.4.57
 yum makecache
 yum install wget unzip
-wget https://files.phpmyadmin.net/phpMyAdmin/5.1.3/phpMyAdmin-5.2.1-all-languages.zip 
+wget https://files.phpmyadmin.net/phpMyAdmin/5.1.2/phpMyAdmin-5.2.1-all-languages.zip 
 unzip phpMyAdmin-5.2.1-all-languages.zip
 mv phpMyAdmin-5.2.1-all-languages /usr/share/phpmyadmin 
 chown -R apache /usr/share/phpmyadmin 
