@@ -35,5 +35,6 @@ echo 'Restarting apache'
 apachectl restart
 systemctl restart httpd.service
 "Reboot server manually with reboot; you must do that if it's the first installation with SE Linux disabled"
+
 fi
 
