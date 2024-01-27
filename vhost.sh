@@ -1,4 +1,9 @@
 #!/bin/bash
+
+read -p 'Do you want to create a virtual host in user\'s directory? (y/n): ' vhost
+
+if [ $vhost = 'y' ] ; then
+
 read -p 'Domain name for virtual host (example.com) for virtual host: ' domain
 read -p 'Username of the user who is assigned this virtual host: ' username
 read -p 'Server IP:' ip
@@ -14,7 +19,7 @@ echo "<VirtualHost $ip:80>
     </VirtualHost>" > $CONFDIR/$domain.conf
 
 mkdir -p $WEBDIR
-echo "<?php header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500); exit('Site is down($domain). Working on it.'); ?>" > $WEBDIR/index.php
+echo "Welcome to $domain" > $WEBDIR/index.php
 
 chmod 711 -R /home/$username
 chmod 755 -R /home/$username/web/$domain/public_html
@@ -30,3 +35,5 @@ echo 'Restarting apache'
 apachectl restart
 systemctl restart httpd.service
 "Reboot server manually with reboot; you must do that if it's the first installation with SE Linux disabled"
+fi
+
