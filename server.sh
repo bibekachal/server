@@ -16,15 +16,14 @@ systemctl start httpd.service
 systemctl enable httpd.service
 
 #Enable UserDir
-CONF=/etc/httpd/conf.d/userdir.conf
-cp $CONF $CONF.bak
-sed -i ' s/UserDir\sdisabled// ' $CONF
-sed -i ' s/#UserDir.*/UserDir public_html/ ' $CONF
-
-sed -i 's@^<Directory\s"\/home.*@<Directory "/home/*/web">@' /etc/httpd/conf.d/userdir.conf
-sed -i 's/AllowOverride FileInfo.*/AllowOverride All/' $CONF
-sed -i 's/Options MultiViews.*/Options Indexes FollowSymLinks/' $CONF
-sed -i 's/Require method.*/Require all granted/' $CONF
+#CONF=/etc/httpd/conf.d/userdir.conf
+#cp $CONF $CONF.bak
+#sed -i ' s/UserDir\sdisabled// ' $CONF
+#sed -i ' s/#UserDir.*/UserDir public_html/ ' $CONF
+#sed -i 's@^<Directory\s"\/home.*@<Directory "/home/*/web">@' /etc/httpd/conf.d/userdir.conf
+#sed -i 's/AllowOverride FileInfo.*/AllowOverride All/' $CONF
+#sed -i 's/Options MultiViews.*/Options Indexes FollowSymLinks/' $CONF
+#sed -i 's/Require method.*/Require all granted/' $CONF
 
 
 
@@ -40,6 +39,8 @@ firewall-cmd --reload
 #MariaDB v 10.11 on rhel v9
 echo 'Installing MariaDB...'
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --mariadb-server-version="mariadb-10.11"
+yum install MariaDB-server MariaDB-client MariaDB-backup
+yum install maxscale
 systemctl start mariadb
 systemctl enable mariadb.service
 mysql_secure_installation
