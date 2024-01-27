@@ -43,7 +43,7 @@ yum install MariaDB-server MariaDB-client MariaDB-backup
 yum install maxscale
 systemctl start mariadb
 systemctl enable mariadb.service
-mysql_secure_installation
+mysql-secure-installation
 echo 'Mariadb installed and started.';
 
 
