@@ -39,8 +39,7 @@ firewall-cmd --reload
 
 #MariaDB v 10.11 on rhel v9
 echo 'Installing MariaDB...'
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --mariadb-server-version="mariadb-10.6" --os-type=rhel --os-version=9
-yum -y install MariaDB-server MariaDB-client MariaDB-backup
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --mariadb-server-version="mariadb-10.11"
 systemctl start mariadb
 systemctl enable mariadb.service
 mysql_secure_installation
