@@ -30,8 +30,3 @@ echo 'Restarting apache'
 apachectl restart
 systemctl restart httpd.service
 "Reboot server manually with reboot; you must do that if it's the first installation with SE Linux disabled"
-
-
-#In wordpress script add define('FS_METHOD','direct'); above DB_NAME to remove ftp error; another error occurred after doing this
-#'could not create directory error -> needed to set ftp constants (https://wordpress.org/support/article/editing-wp-config-php/)'
-#and https://wordpress.stackexchange.com/questions/48/how-can-i-stop-wordpress-from-prompting-me-to-enter-ftp-information-when-doing-u
